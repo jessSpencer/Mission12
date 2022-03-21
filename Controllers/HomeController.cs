@@ -23,7 +23,7 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Tours()
         {
             return View();
         }
