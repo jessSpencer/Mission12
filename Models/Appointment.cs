@@ -17,5 +17,7 @@ namespace Mission12.Models
         [Required]
         public string Day { get; set; }
 
+        public bool Booked { get; set; }
+
     }
 }
