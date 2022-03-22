@@ -13,31 +13,20 @@ namespace Mission12.Models
         {
 
         }
-        public DbSet<Booking> bk { get; set; }
+        //public DbSet<Booking> bk { get; set; }
         public DbSet<Appointment> apt { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-            //mb.Entity<Appointment>().HasData(
-            //    new Appointment { CategoryId = 1, CategoryName = "Home" },
-            //    new Appointment { CategoryId = 2, CategoryName = "School" },
-            //    new Appointment { CategoryId = 3, CategoryName = "Work" },
-            //    new Appointment { CategoryId = 4, CategoryName = "Church" }
-            //);
-            //seeding the database
-            mb.Entity<Booking>().HasData(
-                new Booking
+            mb.Entity<Appointment>().HasData(
+                new Appointment
                 {
-                    BookID = 1,
-                    GroupName = "",
-                    Email = "",
-                    GroupSize = 2,
-                    Phone = 0
-
+                    AptId = 1,
+                    Time = "",
+                    Day = "",
                 },
-                new Booking
+                new Appointment
                 {
-
                 }
             );
 
