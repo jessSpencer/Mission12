@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mission12.Models
 {
-    public class Appointment
+    public class Appointment //these are the appointment times
     {
         [Key]
         [Required]

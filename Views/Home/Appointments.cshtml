@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "View Appointments!";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<table class="table table-sm table-striped table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>Size of Group</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        
+
+        <tr>
+            <td></td> @*  We need to put @ information from the DB in here  *@
+            <td></td>
+            <td></td>
+
+
+            <td>
+                <NavLink class="btn btn-warning btn-sm" href="">Edit</NavLink>    @*@GetEditUrl(b.BookId)*@
+            </td>
+
+            <td>
+                <button class="btn btn-danger btn-sm">Remove</button>   @*@onclick="@(x => RemoveBook(b))"*@
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>

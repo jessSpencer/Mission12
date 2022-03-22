@@ -6,16 +6,29 @@ using System.Threading.Tasks;
 
 namespace Mission12.Models
 {
-    public class Booking
+    public class Booking //information about the group
     {
         [Key]
         [Required]
-        public int BookID { get; set; }
+        public int BookID {get; set;}
+        
+        [Key]
         [Required]
-        public string Name { get; set; }
-        public int Phone { get; set; }
-        public string Email { get; set; }
+        public int AppointmentID { get; set; }
+        
+        [Required(ErrorMessage = "Please enter an Name")]
+        public string GroupName { get; set; }
+        
+        [Required(ErrorMessage = "Please enter a group size")]
         public int GroupSize { get; set; }
+        
+        [Required(ErrorMessage = "Please enter your email")]
+        public string Email { get; set; }
+        
+        [Phone]
+        public int Phone { get; set; }
+
 
     }
 }
+
