@@ -23,7 +23,7 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Tours()
+        public IActionResult Appointments()
         {
             return View();
         }

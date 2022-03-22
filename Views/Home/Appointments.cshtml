@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Book a Tour!";
+    ViewData["Title"] = "View Appointments!";
 }
 <h1>@ViewData["Title"]</h1>
 
@@ -25,9 +25,6 @@
             <td></td>
             <td></td>
 
-            <td>
-                <NavLink class="btn btn-info btn-sm" href="">Details</NavLink>
-            </td>
 
             <td>
                 <NavLink class="btn btn-warning btn-sm" href="">Edit</NavLink>    @*@GetEditUrl(b.BookId)*@
@@ -38,14 +35,6 @@
             </td>
 
         </tr>
-        }
-        }
-        else
-        {
-        <tr>
-            <td colspan="5" class="text-center">No Tours??</td>
-        </tr>
-        }
 
     </tbody>
 
