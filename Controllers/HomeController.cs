@@ -11,11 +11,12 @@ namespace Mission12.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private AptContext aptContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(AptContext x)
         {
-            _logger = logger;
+            aptContext = x;
         }
 
         public IActionResult Index()
@@ -23,15 +24,18 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Appointments()
+        public IActionResult Bookings()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Signup()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            var appointments = aptContext.appointments
+                .Where(x => x.Booked == 0)
+                .ToList();
+            return View(appointments);
         }
+
     }
 }
