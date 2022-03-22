@@ -18,18 +18,18 @@ namespace Mission12.Models
 
         protected override void OnModelCreating(ModelBuilder mb)
         {
-            mb.Entity<Appointment>().HasData(
-                new Appointment { CategoryId = 1, CategoryName = "Home" },
-                new Appointment { CategoryId = 2, CategoryName = "School" },
-                new Appointment { CategoryId = 3, CategoryName = "Work" },
-                new Appointment { CategoryId = 4, CategoryName = "Church" }
-            );
+            //mb.Entity<Appointment>().HasData(
+            //    new Appointment { CategoryId = 1, CategoryName = "Home" },
+            //    new Appointment { CategoryId = 2, CategoryName = "School" },
+            //    new Appointment { CategoryId = 3, CategoryName = "Work" },
+            //    new Appointment { CategoryId = 4, CategoryName = "Church" }
+            //);
             //seeding the database
             mb.Entity<Booking>().HasData(
                 new Booking
                 {
                     BookID = 1,
-                    Name = "",
+                    GroupName = "",
                     Email = "",
                     GroupSize = 2,
                     Phone = 0
