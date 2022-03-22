@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Book a Tour!";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<table class="table table-sm table-striped table-bordered table-hover">
+
+    <thead>
+        <tr>
+            <th>Group Name</th>
+            <th>Size of Group</th>
+            <th>Email Address</th>
+            <th>Phone Number</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            <td>
+                <NavLink class="btn btn-info btn-sm" href="">Details</NavLink>
+            </td>
+
+            <td>
+                <NavLink class="btn btn-warning btn-sm" href="">Edit</NavLink>    @*@GetEditUrl(b.BookId)*@
+            </td>
+
+            <td>
+                <button class="btn btn-danger btn-sm">Remove</button>   @*@onclick="@(x => RemoveBook(b))"*@
+            </td>
+
+        </tr>
+        }
+        }
+        else
+        {
+        <tr>
+            <td colspan="5" class="text-center">No Tours??</td>
+        </tr>
+        }
+
+    </tbody>
+
+</table>
