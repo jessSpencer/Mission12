@@ -52,7 +52,6 @@ namespace Mission12.Controllers
                 return View(book);
             }
 
-            return View();
         }
 
         public IActionResult Signup()
@@ -62,6 +61,16 @@ namespace Mission12.Controllers
                 .ToList();
             return View(appointments);
         }
+
+        [HttpGet]
+        public IActionResult Edit(int bookid)
+        {
+            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+            return View("Form", booking);
+        }
+
+        [HttpPost]
+
 
     }
 }

@@ -27,14 +27,16 @@
             <td>@b.Email</td>
             <td>@b.Phone</td>
             <td>@b.Appointment.</td>
+            <td><a asp-controller="Home" asp-action="Edit" asp-route-taskid="@b.BookID">Edit</a></td>
+            <td><a asp-controller="Home" asp-action="Delete" asp-route-taskid="@b.BookID">Delete</a></td>
+
+            <!--<td>
+                <NavLink class="btn btn-warning btn-sm" href="">Edit</NavLink>-->    @*@GetEditUrl(b.BookId)*@
+            <!--</td>
 
             <td>
-                <NavLink class="btn btn-warning btn-sm" href="">Edit</NavLink>    @*@GetEditUrl(b.BookId)*@
-            </td>
-
-            <td>
-                <button class="btn btn-danger btn-sm">Remove</button>   @*@onclick="@(x => RemoveBook(b))"*@
-            </td>
+                <button class="btn btn-danger btn-sm">Remove</button>-->   @*@onclick="@(x => RemoveBook(b))"*@
+            <!--</td>-->
 
         </tr>
         }
