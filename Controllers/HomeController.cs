@@ -32,7 +32,7 @@ namespace Mission12.Controllers
         public IActionResult Signup()
         {
             var appointments = aptContext.appointments
-                .Where(x => x.Booked == 0)
+                .Where(x => x.Booked == false)
                 .ToList();
             return View(appointments);
         }
