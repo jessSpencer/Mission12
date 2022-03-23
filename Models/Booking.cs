@@ -12,9 +12,9 @@ namespace Mission12.Models
         [Required]
         public int BookID {get; set;}
         
-        [Key]
         [Required]
-        public int AppointmentID { get; set; }
+        public int AptID { get; set; }
+        public Appointment Appointment { get; set; }
         
         [Required(ErrorMessage = "Please enter an Name")]
         public string GroupName { get; set; }

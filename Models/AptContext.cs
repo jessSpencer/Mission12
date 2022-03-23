@@ -13,8 +13,8 @@ namespace Mission12.Models
         {
 
         }
-        //public DbSet<Booking> booking { get; set; }
-        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Booking> Booking { get; set; }
+        public DbSet<Appointment> Appointment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder mb)
         {

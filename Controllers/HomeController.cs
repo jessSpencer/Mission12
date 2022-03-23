@@ -35,7 +35,7 @@ namespace Mission12.Controllers
         }
         public IActionResult Signup()
         {
-            var appointments = AptContext.Appointments
+            var appointments = AptContext.Appointment
                 .Where(x => x.Booked == false)
                 .ToList();
             return View(appointments);
