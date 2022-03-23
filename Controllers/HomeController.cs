@@ -26,11 +26,15 @@ namespace Mission12.Controllers
 
         public IActionResult Bookings()
         {
-            return View();
+            var bookings = AptContext.Booking
+                .ToList();
+            return View(bookings);
         }
 
         public IActionResult Form() //idk what to put here to make the date and time get sent from signup to form view?
         {                           // we don't actually have to show the date and time (Henry Cho didn't)
+            
+            
             return View();
         }
 
