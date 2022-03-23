@@ -33,6 +33,7 @@ namespace Mission12.Controllers
         {                           // we don't actually have to show the date and time (Henry Cho didn't)
             return View();
         }
+
         public IActionResult Signup()
         {
             var appointments = AptContext.Appointment
