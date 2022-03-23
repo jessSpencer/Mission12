@@ -2,7 +2,33 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Our Website 3-15</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Come and See</h1>
+    </div>
+
+    <div class="container"> @* I can't figure out how to make the paragraph below come into a new column and be beside the image *@
+        <div class="col-md-8">
+            <a class="center" asp-controller="Home" asp-action="Signup">
+                <img src="~/img/torontemple.webp" class="center" width="700">
+            </a>
+        </div>
+        <div class="col-md-4">
+            <p>
+                We can only add a limited number of tours at this time. They will be removing the
+                visitors center soon so that they can complete the landscaping. When the trailer is
+                gone, we anticipate being able to talk to groups on the lawn of the church across the
+                street or at the Morgan's backyard. We are trying to facilitate as many groups as
+                possible, so please only sign-up when you can commit to coming on the selected date
+                and time. We have a lot of last minute cancelations.
+            </p>
+        </div>
+    </div>
+
+        <div>
+            <p>We can do groups on Saturday and Sunday</p>
+        </div>
+
+    
+
+</body>
