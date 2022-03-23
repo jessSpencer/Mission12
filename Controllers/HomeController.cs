@@ -78,7 +78,13 @@ namespace Mission12.Controllers
         }
 
         [HttpPost]
+        public IActionResult Edit(Booking book)
+        {
+            AptContext.Update(book);
+            AptContext.SaveChanges();
 
+            return RedirectToAction("Bookings");
+        }
 
     }
 }
