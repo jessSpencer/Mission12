@@ -33,6 +33,7 @@ namespace Mission12.Controllers
         {
             return View();
         }
+
         public IActionResult Signup()
         {
             var appointments = AptContext.Appointment
