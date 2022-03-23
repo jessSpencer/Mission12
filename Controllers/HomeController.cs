@@ -46,18 +46,19 @@ namespace Mission12.Controllers
         }
 
         [HttpPost]
-        public IActionResult Form(Booking book) //idk what to put here to make the date and time get sent from signup to form view?
+        public IActionResult Form(BookingViewModel booking) //idk what to put here to make the date and time get sent from signup to form view?
         {                           // we don't actually have to show the date and time (Henry Cho didn't)(But I think we should)
             if (ModelState.IsValid)
             {
-                AptContext.Add(book);
+                AptContext.Appointment.Single(x => x.AptId == booking.Book.Appointment.AptId).Booked = true;
+                AptContext.Add(booking.Book);
                 AptContext.SaveChanges();
 
                 return RedirectToAction("Bookings");
             }
             else
             {
-                return View(book);
+                return View(booking);
             }
 
         }
