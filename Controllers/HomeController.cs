@@ -29,7 +29,7 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Form()
+        public IActionResult Form() //What to put here to make the date and time get sent from signup to form view?
         {
             return View();
         }
