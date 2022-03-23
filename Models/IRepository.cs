@@ -9,11 +9,11 @@ namespace Mission12.Models
     {
         IQueryable<Booking> Book { get; }
 
-        public void SaveBook(Booking b);
+        //public void SaveBook(Booking b);
 
-        public void CreateBook(Booking b);
+        //public void CreateBook(Booking b);
 
-        public void DeleteBook(Booking b);
+        //public void DeleteBook(Booking b);
 
     }
 }
