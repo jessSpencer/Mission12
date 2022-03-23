@@ -99,7 +99,7 @@ namespace Mission12.Controllers
         {
             AptContext.Booking.Remove(b);
             AptContext.SaveChanges();
-            return RedirectToAction("Bookings")
+            return RedirectToAction("Bookings");
         }
 
     }
