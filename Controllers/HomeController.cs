@@ -80,5 +80,20 @@ namespace Mission12.Controllers
         [HttpPost]
 
 
+        [HttpGet]
+        public IActionResult Delete (int bookid)
+        {
+            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+            return View("Bookings");
+        }
+        
+        [HttpPost]
+        public IActionResult Delete (Booking b)
+        {
+            AptContext.Booking.Remove(b);
+            AptContext.SaveChanges();
+            return RedirectToAction("Bookings")
+        }
+
     }
 }
