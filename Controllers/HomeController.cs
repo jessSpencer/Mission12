@@ -29,10 +29,14 @@ namespace Mission12.Controllers
             return View();
         }
 
+        public IActionResult Form()
+        {
+            return View();
+        }
         public IActionResult Signup()
         {
             var appointments = aptContext.appointments
-                .Where(x => x.Booked == 0)
+                .Where(x => x.Booked == false)
                 .ToList();
             return View(appointments);
         }
