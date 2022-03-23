@@ -77,6 +77,16 @@ namespace Mission12.Controllers
             return View("Form", booking);
         }
 
+        //[HttpPost]
+
+
+        [HttpGet]
+        public IActionResult Delete (int bookid)
+        {
+            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+            return View("Bookings");
+        }
+        
         [HttpPost]
         public IActionResult Edit(Booking book)
         {
@@ -84,6 +94,12 @@ namespace Mission12.Controllers
             AptContext.SaveChanges();
 
             return RedirectToAction("Bookings");
+        }
+        public IActionResult Delete (Booking b)
+        {
+            AptContext.Booking.Remove(b);
+            AptContext.SaveChanges();
+            return RedirectToAction("Bookings")
         }
 
     }
