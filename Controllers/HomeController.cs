@@ -31,10 +31,27 @@ namespace Mission12.Controllers
             return View(bookings);
         }
 
-        public IActionResult Form() //idk what to put here to make the date and time get sent from signup to form view?
+        [HttpGet]
+        public IActionResult Form()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Form(Booking book) //idk what to put here to make the date and time get sent from signup to form view?
         {                           // we don't actually have to show the date and time (Henry Cho didn't)
-            
-            
+            if (ModelState.IsValid)
+            {
+                AptContext.Add(book);
+                AptContext.SaveChanges();
+
+                return RedirectToAction("Bookings");
+            }
+            else
+            {
+                return View(book);
+            }
+
             return View();
         }
 
