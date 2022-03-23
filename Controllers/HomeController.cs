@@ -77,7 +77,7 @@ namespace Mission12.Controllers
             return View("Form", booking);
         }
 
-        [HttpPost]
+        //[HttpPost]
 
 
         [HttpGet]
