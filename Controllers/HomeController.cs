@@ -11,12 +11,12 @@ namespace Mission12.Controllers
 {
     public class HomeController : Controller
     {
-        private AptContext aptContext { get; set; }
+        private AptContext AptContext { get; set; }
 
 
         public HomeController(AptContext x)
         {
-            aptContext = x;
+            AptContext = x;
         }
 
         public IActionResult Index()
@@ -35,7 +35,7 @@ namespace Mission12.Controllers
         }
         public IActionResult Signup()
         {
-            var appointments = aptContext.appointments
+            var appointments = AptContext.Appointments
                 .Where(x => x.Booked == false)
                 .ToList();
             return View(appointments);
