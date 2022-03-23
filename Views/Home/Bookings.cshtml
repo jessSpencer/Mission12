@@ -3,50 +3,6 @@
 }
 <h1>@ViewData["Title"]</h1>
 
-<body>
-    <div class="text-center">
-        <div class="container">
-            <h3>How to Book a Tour</h3>
-            <p>
-                
-            </p>
-            @* I can't figure out how to make the paragraph below come into a new column and be beside the image *@
-            <div class="row">
-                <div class="col-md-8">
-                    <a class="center" asp-controller="Home" asp-action="Signup"></a>
-                    <img src="~/img/torontemple.webp" class="center" width="700">
-                </div>
-                <div class="col-md-4">
-                    <h3>General Info</h3>
-                    <p>
-                        We can only accommodate a limited number of tours groups at this time. They will be removing the
-                        visitors center soon so that they can complete the landscaping. When the trailer is
-                        gone, we anticipate being able to talk to groups on the lawn of the church across the
-                        street or at the Morgan's backyard. We are trying to facilitate as many groups as
-                        possible, so please only sign-up when you can commit to coming on the selected date
-                        and time. We have a lot of last minute cancelations.
-                    </p>
-                    <h3>General Instructions</h3>
-                    <ul>
-                        <li>Park on Rosewood meet at the Visitor's Center</li>
-                        <li>Dress is casual, except on Sundays when we invite you to wear your Sunday best.</li>
-                    </ul>
-
-
-                    <h3>Tour Info</h3>
-                    <ul>
-                        <li>Tour (Outdoor): We will walk on the sidewalk along Oak Hills and on Rosewood in front of the temple on uneven surfaces; please wear sturdy shoes</li>
-                        <li>Trailer Tour: On Sunday. Masks are required</li>
-                        <li>We can do groups on Saturday and Sunday</li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-    </div>
-
-
-</body>
-
 @model List<Booking>
 
 <table class="table table-sm table-striped table-bordered table-hover">
