@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Mission12.Models;
+using Mission12.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -32,14 +33,21 @@ namespace Mission12.Controllers
         }
 
         [HttpGet]
-        public IActionResult Form()
+        public IActionResult Form(int aptId)
         {
-            return View();
+            var x = new BookingViewModel
+            {
+                Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == aptId),
+
+                Book = new Booking()
+            };
+
+            return View(x);
         }
 
         [HttpPost]
         public IActionResult Form(Booking book) //idk what to put here to make the date and time get sent from signup to form view?
-        {                           // we don't actually have to show the date and time (Henry Cho didn't)
+        {                           // we don't actually have to show the date and time (Henry Cho didn't)(But I think we should)
             if (ModelState.IsValid)
             {
                 AptContext.Add(book);
@@ -52,7 +60,6 @@ namespace Mission12.Controllers
                 return View(book);
             }
 
-            return View();
         }
 
         public IActionResult Signup()
@@ -61,6 +68,38 @@ namespace Mission12.Controllers
                 .Where(x => x.Booked == false)
                 .ToList();
             return View(appointments);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int bookid)
+        {
+            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+            return View("Form", booking);
+        }
+
+        //[HttpPost]
+
+
+        [HttpGet]
+        public IActionResult Delete (int bookid)
+        {
+            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+            return View("Bookings");
+        }
+        
+        [HttpPost]
+        public IActionResult Edit(Booking book)
+        {
+            AptContext.Update(book);
+            AptContext.SaveChanges();
+
+            return RedirectToAction("Bookings");
+        }
+        public IActionResult Delete (Booking b)
+        {
+            AptContext.Booking.Remove(b);
+            AptContext.SaveChanges();
+            return RedirectToAction("Bookings")
         }
 
     }

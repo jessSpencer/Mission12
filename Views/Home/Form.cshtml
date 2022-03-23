@@ -2,7 +2,8 @@
 @{
 }
 
-@model Booking
+@model BookingViewModel
+
 <h1> Fill out this Form Please!</h1>
 <style>
     div.validation-message {
@@ -13,41 +14,42 @@
 
 <h3 class="text-white text-center p-1">h3</h3>
 
-<form>
+<form method="post">
 
     <div class="form-group">
-        <label asp-for="BookID">Book#:</label>
-        <input class="form-control" disabled value="grab BookID from DB?" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Appointment.AptId">Appointment#:</label>
-        <input class="form-control" disabled value="grab ApptID from DB?" />
+        <label asp-for="Book.BookID">Book#:</label>
+        <input class="form-control" disabled value="@Model.Book.BookID" />
     </div>
 
     <div class="form-group">
-        <label asp-for="GroupName">Group Name:</label>
-        <input asp-for="GroupName" class="form-control"/>
+        <label asp-for="Book.Appointment.AptId">Appointment#:</label>
+        <input class="form-control" disabled value="@Model.Apt.AptId" />
     </div>
 
     <div class="form-group">
-        <label asp-for="GroupSize">Group Size:</label>
-        <input asp-for="GroupSize" class="form-control" />
+        <label asp-for="Book.GroupName">Group Name:</label>
+        <input asp-for="Book.GroupName" class="form-control"/>
     </div>
 
     <div class="form-group">
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" class="form-control" />
+        <label asp-for="Book.GroupSize">Group Size:</label>
+        <input asp-for="Book.GroupSize" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Phone">Phone:</label>
-        <input asp-for="Phone" class="form-control" />
+        <label asp-for="Book.Email">Email:</label>
+        <input asp-for="Book.Email" class="form-control" />
     </div>
 
-    <div class="float-end">
-        <button class="btn-btn-primary" type="submit" value="Make Appointment" />
+    <div class="form-group">
+        <label asp-for="Book.Phone">Phone:</label>
+        <input asp-for="Book.Phone" class="form-control" />
     </div>
+
+    @*<div class="float-end">
+            <button class="btn-btn-primary" type="submit" value="Make Appointment" />
+        </div>*@
+    <button type="submit">Make Appointment</button>
     <button class="btn btn-secondary" href="Home/Index">Cancel</button>
 
 </form>
