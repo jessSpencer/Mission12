@@ -29,8 +29,8 @@ namespace Mission12.Controllers
             return View();
         }
 
-        public IActionResult Form() //What to put here to make the date and time get sent from signup to form view?
-        {
+        public IActionResult Form() //idk what to put here to make the date and time get sent from signup to form view?
+        {                           // we don't actually have to show the date and time (Henry Cho didn't)
             return View();
         }
         public IActionResult Signup()
