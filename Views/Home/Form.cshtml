@@ -18,12 +18,12 @@
 
     <div class="form-group">
         <label asp-for="Book.BookID">Book#:</label>
-        <input class="form-control" disabled value="Book.BookID" />
+        <input class="form-control" disabled value="@Model.Book.BookID" />
     </div>
 
     <div class="form-group">
         <label asp-for="Book.Appointment.AptId">Appointment#:</label>
-        <input class="form-control" disabled value="Apt.AptId" />
+        <input class="form-control" disabled value="@Model.Apt.AptId" />
     </div>
 
     <div class="form-group">
