@@ -19,6 +19,7 @@ namespace Mission12.Models
         public string GroupName { get; set; }
         
         [Required(ErrorMessage = "Please enter a group size")]
+        [Range(0,15,ErrorMessage = "Groups can have a maximum of 15 individuals")]
         public int GroupSize { get; set; }
         
         [Required(ErrorMessage = "Please enter your email")]
@@ -26,9 +27,13 @@ namespace Mission12.Models
         
         public string Phone { get; set; }
 
-        [ForeignKey ("Appointment")]
-        public int AptId { get; set; }
-        public Appointment Appointment { get; set; }
+        public string Time { get; set; }
+
+        public string Day { get; set; }
+
+        //[ForeignKey ("Appointment")]
+        //public int AptId { get; set; }
+        //public Appointment Appointment { get; set; }
 
 
     }

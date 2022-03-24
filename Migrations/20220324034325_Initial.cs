@@ -31,17 +31,12 @@ namespace Mission12.Migrations
                     GroupSize = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Phone = table.Column<string>(nullable: true),
-                    AptId = table.Column<int>(nullable: false)
+                    Time = table.Column<string>(nullable: true),
+                    Day = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Booking", x => x.BookID);
-                    table.ForeignKey(
-                        name: "FK_Booking_Appointment_AptId",
-                        column: x => x.AptId,
-                        principalTable: "Appointment",
-                        principalColumn: "AptId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -463,20 +458,15 @@ namespace Mission12.Migrations
                 table: "Appointment",
                 columns: new[] { "AptId", "Booked", "Day", "Time" },
                 values: new object[] { 84, false, "Saturday", "8:00 PM" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Booking_AptId",
-                table: "Booking",
-                column: "AptId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Booking");
+                name: "Appointment");
 
             migrationBuilder.DropTable(
-                name: "Appointment");
+                name: "Booking");
         }
     }
 }

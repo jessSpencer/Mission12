@@ -633,8 +633,8 @@ namespace Mission12.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AptId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Day")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -650,20 +650,12 @@ namespace Mission12.Migrations
                     b.Property<string>("Phone")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Time")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("BookID");
 
-                    b.HasIndex("AptId");
-
                     b.ToTable("Booking");
-                });
-
-            modelBuilder.Entity("Mission12.Models.Booking", b =>
-                {
-                    b.HasOne("Mission12.Models.Appointment", "Appointment")
-                        .WithMany()
-                        .HasForeignKey("AptId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
