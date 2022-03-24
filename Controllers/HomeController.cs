@@ -56,7 +56,8 @@ namespace Mission12.Controllers
             }
             else
             {
-                return View();
+                ViewBag.Apt = AptContext.Booking.FirstOrDefault(x => x.BookID == booking.BookID);
+                return View(booking);
             }
 
         }
@@ -83,7 +84,7 @@ namespace Mission12.Controllers
         public IActionResult Edit(Booking booking)
         {
             AptContext.Update(booking);
-            AptContext.Appointment.FirstOrDefault(x => (x.Day == booking.Day && x.Time == booking.Time)).Booked = false;
+            
             AptContext.SaveChanges();
 
             return RedirectToAction("Bookings");
@@ -101,6 +102,7 @@ namespace Mission12.Controllers
         [HttpPost]
         public IActionResult Delete (Booking b)
         {
+            
             AptContext.Booking.Remove(b);
             AptContext.SaveChanges();
             return RedirectToAction("Bookings");
