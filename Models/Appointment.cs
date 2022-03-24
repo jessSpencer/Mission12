@@ -12,8 +12,10 @@ namespace Mission12.Models
         [Key]
         [Required]
         public int AptId { get; set; }
+
         [Required]
         public string Time { get; set; }
+
         [Required]
         public string Day { get; set; }
 

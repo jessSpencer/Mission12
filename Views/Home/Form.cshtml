@@ -2,7 +2,7 @@
 @{
 }
 
-@model BookingViewModel
+@model Booking
 
 <h1> Fill out this Form Please!</h1>
 <style>
@@ -12,38 +12,38 @@
     }
 </style>
 
-<h3 class="text-white text-center p-1">h3</h3>
+<h3 class="text-center p-1">Enter your information for your temple tour on @ViewBag.Apt.Day at @ViewBag.Apt.Time </h3>
 
-<form method="post">
+<form method="post" asp-controller="Home"asp-action="Form">
+
+    @*<div class="form-group">
+        <label asp-for="BookID">Book#:</label>
+        <input class="form-control" disabled value="@Model.BookID" />
+    </div>*@
 
     <div class="form-group">
-        <label asp-for="Book.BookID">Book#:</label>
-        <input class="form-control" disabled value="@Model.Book.BookID" />
+        <label asp-for="AptId">Appointment#:</label>
+        <input asp-for="AptId" class="form-control" disabled value="@ViewBag.Apt.AptId" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Book.Appointment.AptId">Appointment#:</label>
-        <input class="form-control" disabled value="@Model.Apt.AptId" />
+        <label asp-for="GroupName">Group Name:</label>
+        <input asp-for="GroupName" class="form-control"/>
     </div>
 
     <div class="form-group">
-        <label asp-for="Book.GroupName">Group Name:</label>
-        <input asp-for="Book.GroupName" class="form-control"/>
+        <label asp-for="GroupSize">Group Size:</label>
+        <input asp-for="GroupSize" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Book.GroupSize">Group Size:</label>
-        <input asp-for="Book.GroupSize" class="form-control" />
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Book.Email">Email:</label>
-        <input asp-for="Book.Email" class="form-control" />
-    </div>
-
-    <div class="form-group">
-        <label asp-for="Book.Phone">Phone:</label>
-        <input asp-for="Book.Phone" class="form-control" />
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone" class="form-control" />
     </div>
 
     @*<div class="float-end">

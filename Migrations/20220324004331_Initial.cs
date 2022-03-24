@@ -27,22 +27,21 @@ namespace Mission12.Migrations
                 {
                     BookID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    AptID = table.Column<int>(nullable: false),
-                    AppointmentAptId = table.Column<int>(nullable: true),
                     GroupName = table.Column<string>(nullable: false),
                     GroupSize = table.Column<int>(nullable: false),
                     Email = table.Column<string>(nullable: false),
-                    Phone = table.Column<int>(nullable: false)
+                    Phone = table.Column<string>(nullable: true),
+                    AptId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Booking", x => x.BookID);
                     table.ForeignKey(
-                        name: "FK_Booking_Appointment_AppointmentAptId",
-                        column: x => x.AppointmentAptId,
+                        name: "FK_Booking_Appointment_AptId",
+                        column: x => x.AptId,
                         principalTable: "Appointment",
                         principalColumn: "AptId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -466,9 +465,9 @@ namespace Mission12.Migrations
                 values: new object[] { 84, false, "Saturday", "8:00 PM" });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Booking_AppointmentAptId",
+                name: "IX_Booking_AptId",
                 table: "Booking",
-                column: "AppointmentAptId");
+                column: "AptId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

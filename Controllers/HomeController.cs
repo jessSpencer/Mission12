@@ -33,32 +33,42 @@ namespace Mission12.Controllers
         }
 
         [HttpGet]
-        public IActionResult Form(int aptId)
+        public IActionResult Form(int AptId)
         {
-            var x = new BookingViewModel
-            {
-                Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == aptId),
+            ViewBag.Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == AptId);
 
-                Book = new Booking()
-            };
 
-            return View(x);
+            //var x = new BookingViewModel
+            //{
+            //    Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == AptId),
+
+            //    Book = new Booking()
+            //};
+
+            return View(new Booking());
         }
 
         [HttpPost]
-        public IActionResult Form(BookingViewModel booking) //idk what to put here to make the date and time get sent from signup to form view?
-        {                           // we don't actually have to show the date and time (Henry Cho didn't)(But I think we should)
+        public IActionResult Form(Booking booking) //idk what to put here to make the date and time get sent from signup to form view?
+        {
+            //var input = new BookingViewModel
+            //{
+            //    Apt = booking.Apt,
+            //    Book = booking.Book
+            //};
+
             if (ModelState.IsValid)
             {
-                AptContext.Appointment.Single(x => x.AptId == booking.Book.Appointment.AptId).Booked = true;
-                AptContext.Add(booking.Book);
+               
+                AptContext.Add(booking);
                 AptContext.SaveChanges();
+                AptContext.Appointment.Single(x => x.AptId == booking.Appointment.AptId).Booked = true;
 
                 return RedirectToAction("Bookings");
             }
             else
             {
-                return View(booking);
+                return View();
             }
 
         }
