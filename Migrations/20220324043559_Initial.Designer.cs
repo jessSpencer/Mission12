@@ -8,7 +8,7 @@ using Mission12.Models;
 namespace Mission12.Migrations
 {
     [DbContext(typeof(AptContext))]
-    [Migration("20220324034325_Initial")]
+    [Migration("20220324043559_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
