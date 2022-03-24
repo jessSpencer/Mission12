@@ -37,32 +37,20 @@ namespace Mission12.Controllers
         {
             ViewBag.Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == AptId);
 
-
-            //var x = new BookingViewModel
-            //{
-            //    Apt = AptContext.Appointment.FirstOrDefault(x => x.AptId == AptId),
-
-            //    Book = new Booking()
-            //};
-
             return View(new Booking());
         }
 
         [HttpPost]
         public IActionResult Form(Booking booking) //idk what to put here to make the date and time get sent from signup to form view?
         {
-            //var input = new BookingViewModel
-            //{
-            //    Apt = booking.Apt,
-            //    Book = booking.Book
-            //};
+
 
             if (ModelState.IsValid)
             {
                
                 AptContext.Add(booking);
+                AptContext.Appointment.FirstOrDefault(x => (x.Day == booking.Day && x.Time == booking.Time)).Booked = true;
                 AptContext.SaveChanges();
-                AptContext.Appointment.Single(x => x.AptId == booking.Appointment.AptId).Booked = true;
 
                 return RedirectToAction("Bookings");
             }
@@ -84,34 +72,41 @@ namespace Mission12.Controllers
         [HttpGet]
         public IActionResult Edit(int bookid)
         {
+
             var booking = AptContext.Booking.Single(x => x.BookID == bookid);
-            return View("Form", booking);
+
+            ViewBag.Apt = AptContext.Booking.FirstOrDefault(x => x.BookID == booking.BookID);
+            return View("Edit", booking);
         }
 
-        //[HttpPost]
-
-
-        [HttpGet]
-        public IActionResult Delete (int bookid)
-        {
-            var booking = AptContext.Booking.Single(x => x.BookID == bookid);
-            return View("Bookings");
-        }
-        
         [HttpPost]
-        public IActionResult Edit(Booking book)
+        public IActionResult Edit(Booking booking)
         {
-            AptContext.Update(book);
+            AptContext.Update(booking);
+            AptContext.Appointment.FirstOrDefault(x => (x.Day == booking.Day && x.Time == booking.Time)).Booked = false;
             AptContext.SaveChanges();
 
             return RedirectToAction("Bookings");
+
         }
+
+
+        //[HttpGet]
+        //public IActionResult Delete (int bookid)
+        //{
+        //    var booking = AptContext.Booking.Single(x => x.BookID == bookid);
+        //    return View("Bookings");
+        //}
+        
+        [HttpPost]
         public IActionResult Delete (Booking b)
         {
             AptContext.Booking.Remove(b);
             AptContext.SaveChanges();
             return RedirectToAction("Bookings");
         }
+
+  
 
     }
 }

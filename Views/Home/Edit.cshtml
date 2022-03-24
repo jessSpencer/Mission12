@@ -13,8 +13,9 @@
 
 <h3 class="text-center p-1">Enter your information for your temple tour on @ViewBag.Apt.Day at @ViewBag.Apt.Time </h3>
 
-<form method="post" asp-controller="Home" asp-action="Form">
+<form method="post" asp-controller="Home" asp-action="Edit">
 
+    <input hidden asp-for="BookID" value="@Model.BookID" />
 
     <div class="form-group">
         <label asp-for="Day">Day:</label>
@@ -49,9 +50,7 @@
     @*<div class="float-end">
             <button class="btn-btn-primary" type="submit" value="Make Appointment" />
         </div>*@
-    <button type="submit">Make Appointment</button>
+    <button type="submit">Save</button>
     <button class="btn btn-secondary" href="Home/Index">Cancel</button>
 
 </form>
-
-
