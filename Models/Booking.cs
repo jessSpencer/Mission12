@@ -26,9 +26,13 @@ namespace Mission12.Models
         
         public string Phone { get; set; }
 
-        [ForeignKey ("Appointment")]
-        public int AptId { get; set; }
-        public Appointment Appointment { get; set; }
+        public string Time { get; set; }
+
+        public string Day { get; set; }
+
+        //[ForeignKey ("Appointment")]
+        //public int AptId { get; set; }
+        //public Appointment Appointment { get; set; }
 
 
     }
